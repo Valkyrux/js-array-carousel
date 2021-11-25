@@ -1,5 +1,64 @@
+/* stile per lo slider */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.slider {
+    display: flex;
+}
+/* slider sinstra */
+.slider>.slider-photo {
+    width: 80%;
+    overflow: hidden;
+    position: relative;
+}
+/* tutte le immagini che stanno qui dentro hanno display none */
+.slider>.slider-photo>img {
+    display: none;
+}
+/* aggiungo la classe per mostrare l'immagine selezionata */
+.slider>.slider-photo>img.photo-show {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* slider destra */
+.slider>.slider-thumbs {
+    width: 20%;
+    position: relative;
+}
+
+#prev-button {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    font-size: 20px;
+    border: 0px solid trasparent;
+    box-shadow: 0;
+}
+
+#next-button {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.slider-thumbs>img {
+    height: calc(100% / 5);
+    width: 100%;
+    display: block;
 }
