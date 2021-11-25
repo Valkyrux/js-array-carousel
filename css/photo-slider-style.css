@@ -64,11 +64,11 @@
 }
 
 #prev-button {
-    top: 5px;
+    top: 8px;
 }
 
 #next-button {
-    bottom: 5px;
+    bottom: 8px;
 }
 
 .slider-thumbs>img {
