@@ -26,39 +26,59 @@
     object-fit: cover;
     object-position: center;
 }
+/* div */
+.slider>.slider-photo>div {
+    display: none;
+}
+
+.slider>.slider-photo>div.photo-show {
+    font-size: 70%;
+    width: 60%;
+    color: white;
+    display: block;
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    text-align: right;
+}
+
 
 /* slider destra */
 .slider>.slider-thumbs {
     width: 20%;
     position: relative;
 }
-
+/* bottoni che consentono lo spostamento della foto */
+#next-button,
 #prev-button {
     position: absolute;
     height: 30px;
     width: 30px;
-    top: 10px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
     font-size: 20px;
-    border: 0px solid trasparent;
-    box-shadow: 0;
+    border: 0px solid transparent;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#prev-button {
+    top: 5px;
 }
 
 #next-button {
-    position: absolute;
-    height: 30px;
-    width: 30px;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    font-size: 20px;
+    bottom: 5px;
 }
 
 .slider-thumbs>img {
     height: calc(100% / 5);
     width: 100%;
     display: block;
+    filter: brightness(29%);
+}
+
+.slider-thumbs>img.photo-show {
+    filter: brightness(100%);
+    border: 2px solid white;
 }

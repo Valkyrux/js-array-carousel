@@ -33,12 +33,20 @@ sliderThumbs.classList.add("slider-thumbs");
 // aggiungo le immagini all'interno di .slider-photo e .slider-thumb
 for (let i = 0; i < items.length; i++) {
     const img = document.createElement("img");
+    const h1 = document.createElement("h1");
+    const p = document.createElement("p");
+    const div = document.createElement("div");
     img.src = items[i];
+    h1.innerHTML = title[i];
+    p.innerHTML = text[i];
+    div.append(h1, p)
     if (i==0) {
         img.classList.add("photo-show");
+        div.classList.add("photo-show");
     }
-    sliderPhoto.append(img);
+    sliderPhoto.append(img, div);
 }
+
 // altro ciclo for perché append con lo stesso elemento generato da create element non funziona
 for (let i = 0; i < items.length; i++) {
     const img = document.createElement("img");
@@ -60,3 +68,59 @@ sliderThumbs.prepend(prevButton);
 sliderThumbs.append(nextButton);
 
 sliderOnHtml.append(sliderPhoto, sliderThumbs);
+// spostamento all'inizio
+nextButton.addEventListener("click", 
+    function() {
+        const imageList = document.querySelectorAll(".slider-photo img");
+        const textList = document.querySelectorAll(".slider-photo div");
+        const imageListThumb = document.querySelectorAll(".slider-thumbs img");
+        let photoIndex;
+        for (let i = 0; i < imageList.length; i++) {
+            if (imageList[i].classList.contains("photo-show")) {
+                photoIndex = i;
+            }
+        }
+        
+        imageList[photoIndex].classList.remove("photo-show");
+        textList[photoIndex].classList.remove("photo-show");
+        imageListThumb[photoIndex].classList.remove("photo-show");
+
+        if (photoIndex == imageList.length - 1) {
+            imageList[0].classList.add("photo-show");
+            textList[0].classList.add("photo-show");
+            imageListThumb[0].classList.add("photo-show");
+        } else {
+            imageList[photoIndex + 1].classList.add("photo-show");
+            textList[photoIndex + 1].classList.add("photo-show");
+            imageListThumb[photoIndex + 1].classList.add("photo-show");
+        }
+    }
+);
+// spostamento alla fine
+prevButton.addEventListener("click", 
+    function() {
+        const imageList = document.querySelectorAll(".slider-photo img");
+        const textList = document.querySelectorAll(".slider-photo div");
+        const imageListThumb = document.querySelectorAll(".slider-thumbs img");
+        let photoIndex;
+        for (let i = 0; i < imageList.length; i++) {
+            if (imageList[i].classList.contains("photo-show")) {
+                photoIndex = i;
+            }
+        }
+        
+        imageList[photoIndex].classList.remove("photo-show");
+        textList[photoIndex].classList.remove("photo-show");
+        imageListThumb[photoIndex].classList.remove("photo-show");
+
+        if (photoIndex == 0) {
+            imageList[imageList.length - 1].classList.add("photo-show");
+            textList[imageList.length - 1].classList.add("photo-show");
+            imageListThumb[imageList.length - 1].classList.add("photo-show");
+        } else {
+            imageList[photoIndex - 1].classList.add("photo-show");
+            textList[photoIndex - 1].classList.add("photo-show");
+            imageListThumb[photoIndex - 1].classList.add("photo-show");
+        }
+    }
+);
