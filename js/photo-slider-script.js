@@ -46,7 +46,6 @@ for (let i = 0; i < items.length; i++) {
     }
     sliderPhoto.append(img, div);
 }
-
 // altro ciclo for perché append con lo stesso elemento generato da create element non funziona
 for (let i = 0; i < items.length; i++) {
     const img = document.createElement("img");
@@ -68,23 +67,26 @@ sliderThumbs.prepend(prevButton);
 sliderThumbs.append(nextButton);
 
 sliderOnHtml.append(sliderPhoto, sliderThumbs);
-// spostamento all'inizio
+// spostamento alla fine
 nextButton.addEventListener("click", 
     function() {
+        // seleziono le immagini e il testo
         const imageList = document.querySelectorAll(".slider-photo img");
         const textList = document.querySelectorAll(".slider-photo div");
         const imageListThumb = document.querySelectorAll(".slider-thumbs img");
+        // dichiaro l'indice che identifica la classe show attuale
         let photoIndex;
+        // cerco l'indice corretto
         for (let i = 0; i < imageList.length; i++) {
             if (imageList[i].classList.contains("photo-show")) {
                 photoIndex = i;
             }
         }
-        
+        // tolgo show agli elementi trovati
         imageList[photoIndex].classList.remove("photo-show");
         textList[photoIndex].classList.remove("photo-show");
         imageListThumb[photoIndex].classList.remove("photo-show");
-
+        // riassegno i nuovi valori per le classi active
         if (photoIndex == imageList.length - 1) {
             imageList[0].classList.add("photo-show");
             textList[0].classList.add("photo-show");
@@ -96,7 +98,7 @@ nextButton.addEventListener("click",
         }
     }
 );
-// spostamento alla fine
+// spostamento all'inizio
 prevButton.addEventListener("click", 
     function() {
         const imageList = document.querySelectorAll(".slider-photo img");
