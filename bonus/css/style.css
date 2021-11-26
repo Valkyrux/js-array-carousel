@@ -1,0 +1,14 @@
+/* questo documento descrive lo stile della pagina, non intaccando la struttura dello slider */
+.page {
+    height: 100vh;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 70%;
+    min-width: 500px;
+    height: 60%;
+}

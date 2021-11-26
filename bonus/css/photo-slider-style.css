@@ -1,0 +1,94 @@
+/* stile per lo slider */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.slider {
+    display: flex;
+}
+/* slider sinstra */
+.slider>.slider-photo {
+    width: 80%;
+    overflow: hidden;
+    position: relative;
+}
+/* tutte le immagini che stanno qui dentro hanno display none */
+.slider>.slider-photo>img {
+    display: none;
+}
+/* aggiungo la classe per mostrare l'immagine selezionata */
+.slider>.slider-photo>img.photo-show {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+/* div */
+.slider>.slider-photo>div {
+    display: none;
+}
+
+.slider>.slider-photo>div.photo-show {
+    font-size: 70%;
+    width: 60%;
+    color: white;
+    display: block;
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    text-align: right;
+}
+
+
+/* slider destra */
+.slider>.slider-thumbs {
+    width: 20%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+/* bottoni che consentono lo spostamento della foto */
+#next-button,
+#prev-button {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    font-size: 20px;
+    border: 0px solid transparent;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#prev-button {
+    top: 8px;
+}
+
+#next-button {
+    bottom: 8px;
+}
+
+.slider-thumbs>img {
+    display: none;
+    height: calc(100% / 4);
+    width: 100%;
+    filter: brightness(29%);
+}
+
+.slider-thumbs>img.highlights {
+    display: block;
+}
+
+.slider-thumbs>img.order {
+    order: 1;
+}
+
+.slider-thumbs>img.photo-show {
+    filter: brightness(100%);
+    border: 2px solid white;
+}
